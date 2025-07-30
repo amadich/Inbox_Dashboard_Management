@@ -1,4 +1,5 @@
-# Inbox Dashboard
+<img width="2063" height="400" alt="image" src="https://github.com/user-attachments/assets/054c1e69-bd8a-4395-a73a-fd66203e6db2" />
+
 
 ## Overview
 Inbox Dashboard is a comprehensive project management and analytics platform designed to streamline workflows, enhance team collaboration, and provide actionable insights. Built with modern web technologies, it offers a user-friendly interface and robust features to manage tasks, projects, schedules, and more.
@@ -53,11 +54,11 @@ server/
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/inbox_dashboard.git
+   git clone https://github.com/amadich/Inbox_Dashboard_Management.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd inbox_dashboard
+   cd Inbox_Dashboard_Management
    ```
 3. Install dependencies for both client and server:
    ```bash
@@ -76,9 +77,4 @@ server/
    ```
 3. Open your browser and navigate to `http://localhost:3000` to access the application.
 
-## Contributing
-Contributions are welcome! Please fork the repository and submit a pull request for review.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
