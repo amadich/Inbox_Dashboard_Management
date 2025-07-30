@@ -1,0 +1,72 @@
+[
+   {
+     "title": "لوحة القيادة",
+     "href": "/Dashboard",
+     "icon": "HomeIcon",
+     "category": "MAIN",
+     "access": 1
+   },
+   {
+     "title": "المشاريع",
+     "href": "/Projects",
+     "icon": "CheckCircleIcon",
+     "category": "OTHER",
+     "access": 0
+   },
+   {
+     "title": "الجدول الزمني",
+     "href": "/Schedule",
+     "icon": "CalendarIcon",
+     "category": "MAIN",
+     "access": 0
+   },
+   {
+     "title": "الأنشطة",
+     "href": "/Activities",
+     "icon": "BoltIcon",
+     "category": "OTHER",
+     "access": 1
+   },
+   {
+     "title": "المنتجات",
+     "href": "/Products",
+     "icon": "FolderIcon",
+     "category": "MAIN",
+     "access": 1
+   },
+   {
+     "title": "التقارير",
+     "href": "/Reports",
+     "icon": "ChartBarIcon",
+     "category": "MAIN",
+     "access": 1
+   },
+   {
+     "title": "الفريق",
+     "href": "/Records/Team",
+     "icon": "UserGroupIcon",
+     "category": "RECORDS",
+     "access": 1
+   },
+   {
+     "title": "العملاء",
+     "href": "/Records/Clients",
+     "icon": "UsersIcon",
+     "category": "RECORDS",
+     "access": 1
+   },
+   {
+     "title": "الإعدادات",
+     "href": "/Settings",
+     "icon": "CogIcon",
+     "category": "RECORDS",
+     "access": 0
+   },
+   {
+     "title": "الملف الشخصي",
+     "href": "/Profile",
+     "icon": "UserIcon",
+     "category": "RECORDS",
+     "access": 1
+   }
+ ]
