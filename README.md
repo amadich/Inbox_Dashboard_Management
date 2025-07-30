@@ -4,6 +4,9 @@
 ## Overview
 Inbox Dashboard is a comprehensive project management and analytics platform designed to streamline workflows, enhance team collaboration, and provide actionable insights. Built with modern web technologies, it offers a user-friendly interface and robust features to manage tasks, projects, schedules, and more.
 
+<img width="1364" height="768" alt="image" src="https://github.com/user-attachments/assets/dd6167a3-0c5a-4a5c-84e5-c167fd102654" />
+
+
 ## Features
 - **Task Management**: Create, update, and delete tasks with customizable priorities, statuses, and progress tracking.
 - **Project Management**: Organize and monitor projects with detailed analytics and reporting.
@@ -11,6 +14,9 @@ Inbox Dashboard is a comprehensive project management and analytics platform des
 - **Team Collaboration**: Manage team members and clients with dedicated views and tools.
 - **Reports and Analytics**: Generate insightful reports on product statuses, price distributions, and monthly stock.
 - **Localization**: Fully translated user-facing text into Arabic for enhanced accessibility.
+
+<img width="1280" height="1405" alt="image" src="https://github.com/user-attachments/assets/4dfef002-08d5-4975-aa26-700fd92600a3" />
+
 
 ## Technologies Used
 - **Frontend**: React, Next.js, Tailwind CSS
