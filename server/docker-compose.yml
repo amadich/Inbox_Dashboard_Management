@@ -27,6 +27,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_DB: backpack
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     networks:
       - app-network
     healthcheck:
@@ -34,6 +36,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+
+volumes:
+  pgdata:
 
 networks:
   app-network:

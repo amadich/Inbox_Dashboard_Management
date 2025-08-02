@@ -61,5 +61,33 @@
      "icon": "CogIcon",
      "category": "RECORDS",
      "access": 0
-   }
+   },
+   {
+    "title": "الارادات",
+    "href": "/Department/Finance/Revenue",
+    "icon": "PresentationChartBarIcon",
+    "category": "FinanceDepartment",
+    "access": 1
+   },
+   {
+      "title": "المصروفات",
+      "href": "/Department/Finance/Expenses",
+      "icon": "BanknotesIcon",
+      "category": "FinanceDepartment",
+      "access": 1
+    },
+    {
+      "title": "الارباح",
+      "href": "/Department/Finance/Profits",
+      "icon": "CurrencyDollarIcon",
+      "category": "FinanceDepartment",
+      "access": 1
+    },
+    {
+      "title": "الرواتب",
+      "href": "/Department/Finance/Payroll",
+      "icon": "DocumentCurrencyDollarIcon",
+      "category": "FinanceDepartment",
+      "access": 1
+    }
  ]

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { HomeIcon, CheckCircleIcon, CalendarIcon, BoltIcon, FolderIcon, ChartBarIcon, UserGroupIcon, UsersIcon, CogIcon } from '@heroicons/react/24/outline';
+import { HomeIcon, CheckCircleIcon, CalendarIcon, BoltIcon, FolderIcon, ChartBarIcon, UserGroupIcon, UsersIcon, CogIcon , CurrencyDollarIcon, BanknotesIcon , PresentationChartBarIcon, DocumentCurrencyDollarIcon } from '@heroicons/react/24/outline';
 
 const Icons = {
   HomeIcon,
@@ -16,6 +16,10 @@ const Icons = {
   UserGroupIcon,
   UsersIcon,
   CogIcon,
+  CurrencyDollarIcon,
+  BanknotesIcon,
+  PresentationChartBarIcon,
+  DocumentCurrencyDollarIcon
 };
 
 import navLinks from '@/data/navLinks.json'; // Import the JSON file
@@ -59,7 +63,16 @@ export default function Main_Drawer() {
 
   return (
     <div style={isOpen ? { width: "20%" } : { width: "5%" }} className="transition-all duration-300 ease-in-out">
-      <div className={`fixed h-screen bg-white border-r border-gray-200 flex flex-col overflow-hidden shadow-sm transition-all duration-300 ease-in-out ${isOpen ? 'w-40 md:w-64' : 'w-16 md:w-16'}`} onMouseEnter={() => setIsOpen(true)}>
+      <div
+        className={`fixed h-screen bg-white border-r border-gray-200 flex flex-col overflow-hidden overflow-y-auto shadow-sm transition-all duration-300 ease-in-out ${isOpen ? 'w-40 md:w-64' : 'w-16 md:w-16'}`}
+        onMouseEnter={() => setIsOpen(true)}
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        <style jsx>{`
+          div::-webkit-scrollbar {
+        display: none;
+          }
+        `}</style>
 
         {/* Toggle Button */}
         <div className="absolute top-4 left-40 z-10">
@@ -117,6 +130,31 @@ export default function Main_Drawer() {
                         className={`group flex items-center px-5 py-2 rounded transition-all duration-300 ${isActive ? 'bg-blue-100 text-green-900' : 'text-gray-700 hover:bg-gray-200'}`}
                       >
                         <IconComponent className={`h-6 w-6 ${isActive ? 'text-green-900' : 'text-gray-500'}`} />
+                        {isOpen && <span className="ml-2 text-xs">{link.title}</span>}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+
+          {/* Render FinanceDepartment Links */}
+          {groupedLinks['FinanceDepartment'] && (
+            <div className="mt-4">
+              {isOpen && <p className="font-bold text-gray-500 text-xs pl-5">قسم المالية</p>}
+              <ul className="space-y-2">
+                {groupedLinks['FinanceDepartment'].map((link) => {
+                  const IconComponent = Icons[link.icon as keyof typeof Icons];
+                  const isActive = pathname === link.href;
+
+                  return (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className={`group flex items-center px-5 py-2 rounded transition-all duration-300 ${isActive ? 'bg-blue-100 text-blue-500' : 'text-gray-700 hover:bg-gray-200'}`}
+                      >
+                        <IconComponent className={`h-6 w-6 ${isActive ? 'text-blue-500' : 'text-gray-500'}`} />
                         {isOpen && <span className="ml-2 text-xs">{link.title}</span>}
                       </Link>
                     </li>
