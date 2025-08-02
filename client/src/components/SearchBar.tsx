@@ -16,6 +16,10 @@ import {
   UsersIcon as iconsUsers,
   CogIcon as iconsCog,
   UserIcon as iconsUser,
+  PresentationChartBarIcon as iconsChartBarPresentation,
+  BanknotesIcon as iconsBanknotes,
+  CurrencyDollarIcon as iconsCurrencyDollar,
+  DocumentCurrencyDollarIcon as iconsDocumentCurrencyDollar,
 } from "@heroicons/react/24/outline";
 import { TokenInfoUser } from "./authUsers/TokenInfoUser";
 
@@ -30,6 +34,10 @@ const Icons = {
   UsersIcon: iconsUsers,
   CogIcon: iconsCog,
   UserIcon: iconsUser,
+  PresentationChartBarIcon: iconsChartBarPresentation,
+  BanknotesIcon: iconsBanknotes,
+  CurrencyDollarIcon: iconsCurrencyDollar,
+  DocumentCurrencyDollarIcon: iconsDocumentCurrencyDollar,
 };
 
 export default function SearchBar() {

@@ -3,70 +3,98 @@
      "title": "لوحة القيادة",
      "href": "/Dashboard",
      "icon": "HomeIcon",
-     "category": "MAIN",
+     "category": "الرئيسية",
      "access": 1
    },
    {
      "title": "المشاريع",
      "href": "/Projects",
      "icon": "CheckCircleIcon",
-     "category": "OTHER",
+     "category": "أخرى",
      "access": 0
    },
    {
      "title": "الجدول الزمني",
      "href": "/Schedule",
      "icon": "CalendarIcon",
-     "category": "MAIN",
+     "category": "الرئيسية",
      "access": 0
    },
    {
      "title": "الأنشطة",
      "href": "/Activities",
      "icon": "BoltIcon",
-     "category": "OTHER",
+     "category": "أخرى",
      "access": 1
    },
    {
      "title": "المنتجات",
      "href": "/Products",
      "icon": "FolderIcon",
-     "category": "MAIN",
+     "category": "الرئيسية",
      "access": 1
    },
    {
      "title": "التقارير",
      "href": "/Reports",
      "icon": "ChartBarIcon",
-     "category": "MAIN",
+     "category": "الرئيسية",
      "access": 1
    },
    {
      "title": "الفريق",
      "href": "/Records/Team",
      "icon": "UserGroupIcon",
-     "category": "RECORDS",
+     "category": "السجلات",
      "access": 1
    },
    {
      "title": "العملاء",
      "href": "/Records/Clients",
      "icon": "UsersIcon",
-     "category": "RECORDS",
+     "category": "السجلات",
      "access": 1
    },
    {
      "title": "الإعدادات",
      "href": "/Settings",
      "icon": "CogIcon",
-     "category": "RECORDS",
+     "category": "السجلات",
      "access": 0
    },
    {
      "title": "الملف الشخصي",
      "href": "/Profile",
      "icon": "UserIcon",
-     "category": "RECORDS",
+     "category": "السجلات",
+     "access": 1
+   },
+   {
+     "title": "الإيرادات",
+     "href": "/Department/Finance/Revenue",
+     "icon": "PresentationChartBarIcon",
+     "category": "قسم المالية",
+     "access": 1
+   },
+   {
+     "title": "المصروفات",
+     "href": "/Department/Finance/Expenses",
+     "icon": "BanknotesIcon",
+     "category": "قسم المالية",
+     "access": 1
+   },
+   {
+     "title": "الأرباح",
+     "href": "/Department/Finance/Profits",
+     "icon": "CurrencyDollarIcon",
+     "category": "قسم المالية",
+     "access": 1
+   },
+   {
+     "title": "الرواتب",
+     "href": "/Department/Finance/Payroll",
+     "icon": "DocumentCurrencyDollarIcon",
+     "category": "قسم المالية",
      "access": 1
    }
  ]

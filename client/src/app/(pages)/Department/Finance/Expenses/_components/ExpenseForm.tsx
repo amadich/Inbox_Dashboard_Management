@@ -3,7 +3,8 @@
 import { useMutation } from '@apollo/client';
 import { gql } from '@apollo/client';
 import { MinusIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Expense } from './ExpenseTable';
 
 const GET_EXPENSES = gql`
   query GetExpenses {
@@ -33,8 +34,38 @@ const CREATE_EXPENSE = gql`
   }
 `;
 
-export function ExpenseForm() {
-  const [form, setForm] = useState({
+// New update mutation
+const UPDATE_EXPENSE = gql`
+  mutation UpdateExpense($id: ID!, $input: ExpenseUpdateInput!) {
+    updateExpense(id: $id, input: $input) {
+      id
+      amount
+      description
+      date
+      project
+      mainCategory
+      subCategory
+    }
+  }
+`;
+
+interface FormState {
+  amount: string;
+  description: string;
+  date: string;
+  project: string;
+  mainCategory: string;
+  subCategory: string;
+}
+
+export function ExpenseForm({ 
+  editingExpense, 
+  setEditingExpense 
+}: { 
+  editingExpense: Expense | null; 
+  setEditingExpense: (expense: Expense | null) => void;
+}) {
+  const [form, setForm] = useState<FormState>({
     amount: '',
     description: '',
     date: '',
@@ -43,26 +74,17 @@ export function ExpenseForm() {
     subCategory: '',
   });
 
-  const [createExpense, { loading, error }] = useMutation(CREATE_EXPENSE, {
-    refetchQueries: [{ query: GET_EXPENSES }]
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await createExpense({
-        variables: {
-          input: {
-            ...form,
-            amount: parseFloat(form.amount)
-          }
-        }
+  useEffect(() => {
+    if (editingExpense) {
+      setForm({
+        amount: editingExpense.amount.toString(),
+        description: editingExpense.description,
+        date: editingExpense.date,
+        project: editingExpense.project || '',
+        mainCategory: editingExpense.mainCategory,
+        subCategory: editingExpense.subCategory || '',
       });
-      // Reset form
+    } else {
       setForm({
         amount: '',
         description: '',
@@ -71,11 +93,52 @@ export function ExpenseForm() {
         mainCategory: '',
         subCategory: '',
       });
+    }
+  }, [editingExpense]);
 
-      location.reload(); // Reload to reflect changes in the table
+  const [createExpense, { loading: createLoading, error: createError }] = useMutation(CREATE_EXPENSE, {
+    refetchQueries: [{ query: GET_EXPENSES }],
+    onCompleted: () => {
+      setEditingExpense(null);
+    }
+  });
 
+  // New update mutation hook
+  const [updateExpense, { loading: updateLoading, error: updateError }] = useMutation(UPDATE_EXPENSE, {
+    refetchQueries: [{ query: GET_EXPENSES }],
+    onCompleted: () => {
+      setEditingExpense(null);
+    }
+  });
+
+  const error = createError || updateError;
+  const loading = createLoading || updateLoading;
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const input = {
+        ...form,
+        amount: parseFloat(form.amount)
+      };
+
+      if (editingExpense) {
+        await updateExpense({
+          variables: {
+            id: editingExpense.id,
+            input
+          }
+        });
+      } else {
+        await createExpense({ variables: { input } });
+        location.reload(); // Reload to reflect new data
+      }
     } catch (err) {
-      console.error('Error creating expense:', err);
+      console.error('Error submitting expense:', err);
     }
   };
 
@@ -83,7 +146,9 @@ export function ExpenseForm() {
     <form onSubmit={handleSubmit} className="card bg-base-100 shadow-md p-4 space-y-4">
       <div className="flex items-center gap-2">
         <MinusIcon className="w-5 h-5 text-error" />
-        <h2 className="text-lg font-semibold">تسجيل مصروف مفصل</h2>
+        <h2 className="text-lg font-semibold">
+          {editingExpense ? 'تحديث مصروف' : 'تسجيل مصروف مفصل'}
+        </h2>
       </div>
 
       {error && (
@@ -152,13 +217,27 @@ export function ExpenseForm() {
         />
       </div>
 
-      <button 
-        type="submit" 
-        className={`btn ${loading ? 'btn-disabled' : 'bg-blue-300'}`}
-        disabled={loading}
-      >
-        {loading ? 'جاري الحفظ...' : 'حفظ'}
-      </button>
+      <div className="flex gap-2">
+        <button 
+          type="submit" 
+          className={`btn  w-36 ${loading ? 'btn-disabled' : 'bg-blue-300'}`}
+          disabled={loading}
+        >
+          {loading 
+            ? (editingExpense ? 'جاري التحديث...' : 'جاري الحفظ...') 
+            : (editingExpense ? 'تحديث' : 'حفظ')
+          }
+        </button>
+        {editingExpense && (
+          <button 
+            type="button" 
+            className="btn btn-ghost"
+            onClick={() => setEditingExpense(null)}
+          >
+            إلغاء
+          </button>
+        )}
+      </div>
     </form>
   );
 }

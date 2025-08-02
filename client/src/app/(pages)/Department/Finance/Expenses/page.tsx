@@ -3,11 +3,10 @@
 import { useState } from 'react';
 import { ExpenseForm } from './_components/ExpenseForm';
 import { ExpenseFilter } from './_components/ExpenseFilter';
-import { ExpenseTable } from './_components/ExpenseTable';
+import { ExpenseTable, Expense as ExpenseType } from './_components/ExpenseTable';
 import inboxLogo from "@/assets/images/sotetel_logo.png"
 import Image from 'next/image';
 import Snowflakes from "@/components/Snowflakes";
-
 
 export default function ExpensesPage() {
   const [filters, setFilters] = useState({
@@ -15,6 +14,7 @@ export default function ExpensesPage() {
     category: '',
     project: '',
   });
+  const [editingExpense, setEditingExpense] = useState<ExpenseType | null>(null);
 
   return (
     <>
@@ -31,9 +31,15 @@ export default function ExpensesPage() {
         إدارة <span className='text-blue-500'>المصروفات</span>
       </h1>
       
-      <ExpenseForm />
+      <ExpenseForm 
+        editingExpense={editingExpense} 
+        setEditingExpense={setEditingExpense} 
+      />
       <ExpenseFilter filters={filters} onFilterChange={setFilters} />
-      <ExpenseTable filters={filters} />
+      <ExpenseTable 
+        filters={filters} 
+        setEditingExpense={setEditingExpense} 
+      />
     </main>
     </>
   );
