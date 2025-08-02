@@ -18,6 +18,14 @@ export const revenueTypeDefs = gql`
     category: String
   }
 
+  input RevenueUpdateInput {
+    amount: Float
+    source: String
+    date: String
+    project: String
+    category: String
+  }
+
   input RevenueFilter {
     date: String
     project: String
@@ -30,5 +38,7 @@ export const revenueTypeDefs = gql`
 
   type Mutation {
     createRevenue(input: RevenueInput!): Revenue!
+    updateRevenue(id: ID!, input: RevenueUpdateInput!): Revenue!
+    deleteRevenue(id: ID!): Boolean!
   }
 `;

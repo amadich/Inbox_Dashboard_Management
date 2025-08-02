@@ -27,5 +27,23 @@ export class RevenueService {
 
     return Revenue.findAll({ where });
   }
-  
+
+  // New update method
+  static async updateRevenue(id: string, data: Partial<Revenue>) {
+    const revenue = await Revenue.findByPk(id);
+    if (!revenue) {
+      throw new Error('Revenue not found');
+    }
+    return revenue.update(data);
+  }
+
+  // New delete method
+  static async deleteRevenue(id: string) {
+    const revenue = await Revenue.findByPk(id);
+    if (!revenue) {
+      throw new Error('Revenue not found');
+    }
+    await revenue.destroy();
+    return true;
+  }
 }

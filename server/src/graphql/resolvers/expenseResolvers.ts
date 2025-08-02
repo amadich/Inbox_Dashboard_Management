@@ -9,6 +9,12 @@ export const expenseResolvers = {
   Mutation: {
     createExpense: async (_: any, { input }: { input: any }) => {
       return ExpenseService.createExpense(input);
+    },
+    updateExpense: async (_: any, { id, input }: { id: string; input: any }) => {
+      return ExpenseService.updateExpense(id, input);
+    },
+    deleteExpense: async (_: any, { id }: { id: string }) => {
+      return ExpenseService.deleteExpense(id);
     }
-  }
+    }
 };

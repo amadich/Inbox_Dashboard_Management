@@ -26,11 +26,22 @@ export const expenseTypeDefs = gql`
     mainCategory: String
   }
 
+  input ExpenseUpdateInput {
+    amount: Float
+    description: String
+    date: String
+    project: String
+    mainCategory: String
+    subCategory: String
+  }
+
   type Query {
     expenses(filter: ExpenseFilter): [Expense!]!
   }
 
   type Mutation {
     createExpense(input: ExpenseInput!): Expense!
+    updateExpense(id: ID!, input: ExpenseUpdateInput!): Expense!
+    deleteExpense(id: ID!): Boolean!
   }
 `;

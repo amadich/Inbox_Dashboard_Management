@@ -2,6 +2,14 @@ import { Table, Column, Model, DataType } from 'sequelize-typescript';
 
 @Table({ tableName: 'expenses' })
 export class Expense extends Model {
+  
+  @Column({
+    type: DataType.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  })
+  id!: number;
+
   @Column({
     type: DataType.DECIMAL(10, 2),
     allowNull: false

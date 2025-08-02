@@ -28,4 +28,23 @@ export class ExpenseService {
 
     return Expense.findAll({ where });
   }
+
+   static async updateExpense(id: string, data: Partial<Expense>) {
+    const expense = await Expense.findByPk(id);
+    if (!expense) {
+      throw new Error('Expense not found');
+    }
+    return expense.update(data);
+  }
+
+  static async deleteExpense(id: string) {
+    const expense = await Expense.findByPk(id);
+    if (!expense) {
+      throw new Error('Expense not found');
+    }
+    await expense.destroy();
+    return true;
+  }
+
+
 }
