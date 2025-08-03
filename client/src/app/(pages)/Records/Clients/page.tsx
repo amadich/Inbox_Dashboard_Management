@@ -58,7 +58,7 @@ const ManageUsers = () => {
             height={100}
             draggable={false}
           />
-          <p className="text-gray-500">داخل الصندوق <span className="text-blue-500 font-semibold">العملاء</span></p>
+          <p className="text-gray-500">داخل الصندوق <span className="text-blue-500 font-semibold">الموظفين</span></p>
         </div>
       </div>
 

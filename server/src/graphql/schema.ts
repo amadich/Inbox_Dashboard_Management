@@ -19,8 +19,10 @@ import { profitTypeDefs } from "./typeDefs/profitTypeDefs";
 import { profitResolvers } from "./resolvers/profitResolvers";
 import { payrollTypeDefs } from "./typeDefs/payrollTypeDefs";
 import { payrollResolvers } from "./resolvers/payrollResolvers";
+import { userContactTypeDefs } from "./typeDefs/userContactTypedefs";
+import { userContactResolvers } from "./resolvers/userContactResolvers";
 
 export const schema = makeExecutableSchema({
-  typeDefs: [userTypeDefs , taskTypeDefs , projectTypeDefs , announcementTypeDefs , scheduleTypeDefs , activityTypeDefs, revenueTypeDefs, expenseTypeDefs, profitTypeDefs, payrollTypeDefs],
-  resolvers: [userResolvers , taskResolvers , projectResolvers , announcementResolvers , scheduleResolvers , activityResolvers, revenueResolvers, expenseResolvers, profitResolvers, payrollResolvers],
+  typeDefs: [userTypeDefs , taskTypeDefs , projectTypeDefs , announcementTypeDefs , scheduleTypeDefs , activityTypeDefs, revenueTypeDefs, expenseTypeDefs, profitTypeDefs, payrollTypeDefs, userContactTypeDefs],
+  resolvers: [userResolvers , taskResolvers , projectResolvers , announcementResolvers , scheduleResolvers , activityResolvers, revenueResolvers, expenseResolvers, profitResolvers, payrollResolvers, userContactResolvers],
 });

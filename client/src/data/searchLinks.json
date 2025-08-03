@@ -49,7 +49,14 @@
      "access": 1
    },
    {
-     "title": "العملاء",
+     "title": "جهات الاتصال",
+     "href": "/Records/Contacts",
+     "icon": "BuildingOfficeIcon",
+     "category": "RECORDS",
+     "access": 1
+   },
+   {
+     "title": "الموظفين",
      "href": "/Records/Clients",
      "icon": "UsersIcon",
      "category": "السجلات",
