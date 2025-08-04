@@ -11,6 +11,7 @@ import Image from "next/image";
 import iconSotetel from "@/assets/icons/cropped-favicon-32x32.png";
 import "@/assets/styles/Main_Projects.css";
 import { TokenInfoUser } from "@/components/authUsers/TokenInfoUser";
+import img_not_found_trash from "@/assets/images/not_found_trash.svg";
 
 interface Contact {
   id: string;
@@ -196,6 +197,14 @@ const ManageContacts = () => {
             ) : (
               <tr>
                 <td colSpan={8} className="text-center text-gray-500">
+                  <Image
+                    src={img_not_found_trash}
+                    alt="No Contacts Found"
+                    width={100}
+                    height={100}
+                    draggable={false}
+                    className="mx-auto mb-4"
+                  />
                   لا توجد جهات اتصال.
                 </td>
               </tr>

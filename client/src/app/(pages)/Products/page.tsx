@@ -5,6 +5,7 @@ import { CalendarDateRangeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/
 import * as XLSX from "xlsx";
 import SotetlLogo from "@/assets/images/sotetel_logo.png";
 import ExcelIcon from "@/assets/icons/excel.png";
+import img_not_found_trash from "@/assets/images/not_found_trash.svg";
 
 // type ProductStatus = "Published" | "Out Stock" | "Draft List" | "Inactive";
 
@@ -198,6 +199,14 @@ export default function ProductsPage() {
             {filteredProducts.length === 0 ? (
               <tr>
                 <td colSpan={6} className="text-center py-6 text-muted">
+                  <img
+                    src={img_not_found_trash.src}
+                    alt="No Products Found"
+                    className="mx-auto mb-4"
+                    width={100}
+                    height={100}
+                    draggable="false"
+                  />
                   لم يتم العثور على منتجات تطابق معاييرك.
                 </td>
               </tr>
